@@ -1,8 +1,6 @@
 import { readOnlyTable } from "./table";
 import { neighborsArray, nums, validateSudoku } from "./sudoku_utils";
 
-const OPTIMIZATIONS = false;
-
 export async function solveSudoku(graph, slowDown, delay) {
   const originTable = graph.map((n) => n && n !== 0);
   if (!validateSudoku(graph, neighborsArray)) {
@@ -36,13 +34,11 @@ export async function solveSudoku(graph, slowDown, delay) {
   printTable(graph, "Solution not found");
 }
 
-function getAvailableNumbers(tNeighbor, t) {
+const getAvailableNumbers = (tNeighbor, t) => {
   const tNeighbors = neighborsArray[tNeighbor];
   const tNeighborsValues = tNeighbors.map((n) => t.graph[n]);
-  if (OPTIMIZATIONS) {
-  }
   return nums.filter((n) => !tNeighborsValues.includes(n));
-}
+};
 
 const assignAndPush = (tNeighbor, t, s) => {
   const availableNumbers = getAvailableNumbers(tNeighbor, t);
@@ -53,8 +49,8 @@ const assignAndPush = (tNeighbor, t, s) => {
   }
 };
 
-function printTable(graph, header, originTable) {
+const printTable = (graph, header, originTable) => {
   const container = document.getElementById("solution-container");
   container.innerHTML = "";
   container.appendChild(readOnlyTable(graph, header, originTable));
-}
+};
