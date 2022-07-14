@@ -299,7 +299,9 @@ table > caption {
 }
 
 colgroup, tbody {
-  border: solid 3px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
 }
 
 .added-value-cell {
