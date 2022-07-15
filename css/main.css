@@ -265,11 +265,6 @@ body {
   font-family: Calibri, sans-serif;
 }
 
-.container {
-  width: 800px;
-  margin: 0 auto;
-}
-
 .page-title {
   text-align: center;
   font-size: 50px;
@@ -282,11 +277,7 @@ body {
 
 .table-container {
   padding: 20px;
-}
-
-.double-table {
-  display: flex;
-  justify-content: center;
+  display: inline-block;
 }
 
 table {
@@ -353,6 +344,25 @@ button:hover {
 
 .span-input {
   padding: 0 3px;
+}
+
+.double-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .double-table {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
 }
 
 
