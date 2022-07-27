@@ -1,4 +1,5 @@
 import { GRID_SIZE, SUBGRID_SIZE } from "./config";
+import { readOnlyTable } from "./table";
 
 const neighbors = (index) => {
   const length = GRID_SIZE;
@@ -57,4 +58,10 @@ export const validateSudoku = (graph, neigh) => {
     }
   }
   return true;
+};
+
+export const printTable = (graph, header, originTable) => {
+  const container = document.getElementById("solution-container");
+  container.innerHTML = "";
+  container.appendChild(readOnlyTable(graph, header, originTable));
 };
